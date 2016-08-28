@@ -2,6 +2,6 @@
 
 
 Hook::add('plugin2',function(){
-    echo '插件2的内容<br />';
+    echo '发送邮件的内容<br />';
 });
 
