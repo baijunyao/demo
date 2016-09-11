@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jquery 异步获取数据</title>
+    <style type="text/css">
+        div{
+            margin: 20px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+
+<!-- jquery ajax获取数据 -->
+<div class="jquery-ajax">
+    
+</div>
+
+<!-- 引入jquery --> 
+<script src="./js/jquery-1.10.2.min.js"></script>
+<script>
+    // 用jquery的方式实现
+    $.get('data.php', function(data) {
+        var str='<h1 class="bjy-category">'+data.category+'</h1>';
+        $.each(data.article, function(index, val) {
+            str +='<ul class="bjy-article"><li class="bjy-title">'+val.title+'</li><li class="bjy-author">'+val.author+'</li></ul>';
+        });
+        $('.jquery-ajax').html(str);
+    },'json');
+</script>
+
+</body>
+</html>
