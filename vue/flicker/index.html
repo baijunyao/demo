@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue 解决闪烁的问题</title>
+    <style type="text/css">
+        [v-cloak]{display: none}
+    </style>
+</head>
+<body>
+
+<!-- vue ajax获取数据 -->
+<div class="vue-box">
+    <p>{{ posts }}</p>
+    <p v-text="posts"></p>
+    <p v-html="posts"></p>
+    <p v-cloak>{{ posts }}</p>
+</div>
+
+
+
+<!-- ↓↓↓↓↓↓↓↓请无视引入的这堆js 主要是模拟正常项目中引入插件会延长加载时间↓↓↓↓↓↓↓↓↓↓↓ -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+<!-- ↑↑↑↑↑↑↑↑↑请无视引入的这堆js 主要是模拟正常项目中引入插件会延长加载时间↑↑↑↑↑↑↑↑↑↑ -->
+
+
+<!-- 引入veujs -->
+<script src="./js/vue.js"></script>
+<!-- 引入用于配合vuejs执行ajax操作的插件 -->
+<script src="./js/vue-resource.min.js"></script>
+
+<script>
+// ajax 获取数据
+var vm2=new Vue({
+    el: '.vue-box',
+    data: {
+        posts:''
+    },
+    // 页面加载的时候会自动执行ready
+    ready: function(){
+        // 等同于jquery的$.get()
+        this.$http.get('data.php').then(function(response){
+                this.posts=response.data;
+            })
+    }
+});
+</script>
+
+</body>
+</html>

@@ -35,7 +35,7 @@ var vm2=new Vue({
     },
     // 页面加载的时候会自动执行ready
     ready: function(){
-        // 等同于jquery的$.ajax
+        // 等同于jquery的$.get()
         this.$http.get('data.php').then(function(response){
                 this.posts=response.data;
             })
