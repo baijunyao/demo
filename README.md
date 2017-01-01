@@ -1,6 +1,9 @@
 ## 简介
 文章中的一些demo
 
+## 相关文章
+1. [thinkphp整合系列之短信验证码、订单通知](http://baijunyao.com/article/66)
+
 ## 链接
 - 官网：http://baijunyao.com   
 - github：https://github.com/baijunyao/thinkphp-bjyadmin   
